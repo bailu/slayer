@@ -1,15 +1,13 @@
 <?php
-
 namespace Components\Providers\Slayer;
 
-use Bootstrap\Services\Service\ServiceProvider;
 use Phalcon\Mvc\Model\Metadata\Memory;
+use Bootstrap\Services\Service\ServiceProvider;
 
 class MetadataAdapter extends ServiceProvider
 {
-    protected $_alias = 'modelsMetadata';
-
-    protected $_shared = false;
+    protected $alias  = 'modelsMetadata';
+    protected $shared = false;
 
     public function register()
     {

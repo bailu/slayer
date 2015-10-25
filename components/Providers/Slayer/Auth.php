@@ -1,15 +1,13 @@
 <?php
-
 namespace Components\Providers\Slayer;
 
-use Bootstrap\Services\Service\ServiceProvider;
 use Bootstrap\Support\Auth\Auth as SlayerAuth;
+use Bootstrap\Services\Service\ServiceProvider;
 
 class Auth extends ServiceProvider
 {
-    public $_alias = 'auth';
-
-    public $_shared = false;
+    protected $alias  = 'auth';
+    protected $shared = false;
 
     public function register()
     {

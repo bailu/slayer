@@ -1,5 +1,4 @@
 <?php
-
 namespace Bootstrap\Exceptions;
 
 use Exception;
@@ -66,6 +65,12 @@ class Handler extends Exception
 
     public function render($e)
     {
+        if ( php_sapi_name() == 'cli' ) {
+            var_dump($e);
+
+            return;
+        }
+
         (new ExceptionHandler($this->getDebugMode()))->sendPhpResponse($e);
     }
 
@@ -94,8 +99,9 @@ class Handler extends Exception
     protected function getDebugMode()
     {
         $ret = false;
+        $debug = config()->app->debug == 'true';
 
-        if ($debug = config()->app->debug == 'true' || $debug === true) {
+        if ( $debug || $debug === true) {
             $ret = true;
         }
 

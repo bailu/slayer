@@ -1,14 +1,12 @@
 <?php
-
 namespace Components\Providers\Slayer;
 
 use Bootstrap\Services\Service\ServiceProvider;
 
 class Response extends ServiceProvider
 {
-    protected $_alias = 'response';
-
-    protected $_shared = false;
+    protected $alias  = 'response';
+    protected $shared = false;
 
     public function register()
     {

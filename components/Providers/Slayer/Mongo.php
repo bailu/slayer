@@ -1,14 +1,12 @@
 <?php
-
 namespace Components\Providers\Slayer;
 
 use Bootstrap\Services\Service\ServiceProvider;
 
 class Mongo extends ServiceProvider
 {
-    public $_alias = 'mongo';
-
-    public $_shared = false;
+    protected $alias  = 'mongo';
+    protected $shared = false;
 
     public function register()
     {

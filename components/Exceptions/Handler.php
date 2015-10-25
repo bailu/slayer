@@ -1,10 +1,9 @@
 <?php
-
 namespace Components\Exceptions;
 
 use View;
-use Bootstrap\Exceptions\Handler as BaseHandler;
 use Phalcon\Mvc\Dispatcher as MvcDispatcher;
+use Bootstrap\Exceptions\Handler as BaseHandler;
 
 class Handler extends BaseHandler
 {

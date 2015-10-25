@@ -1,5 +1,4 @@
 <?php
-
 namespace Components\Providers\Slayer;
 
 use Bootstrap\Services\Service\ServiceProvider;
@@ -7,9 +6,8 @@ use Bootstrap\Support\Phalcon\Mvc\Router as PhalconRouter;
 
 class Router extends ServiceProvider
 {
-    protected $_alias = 'router';
-
-    protected $_shared = false;
+    protected $alias  = 'router';
+    protected $shared = false;
 
     public function register()
     {

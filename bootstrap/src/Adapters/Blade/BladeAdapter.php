@@ -1,11 +1,12 @@
 <?php
-
 namespace Bootstrap\Adapters\Blade;
 
-use Illuminate\View\Compilers\BladeCompiler;
-use Illuminate\View\Engines\CompilerEngine;
+use Log;
 use Phalcon\Mvc\View\Engine;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\View\Engines\CompilerEngine;
+use Illuminate\View\Compilers\BladeCompiler;
+use Bootstrap\Support\Illuminate\View\Factory;
 
 class BladeAdapter extends Engine
 {
@@ -14,39 +15,25 @@ class BladeAdapter extends Engine
     public function __construct($view, $di)
     {
         parent::__construct($view, $di);
-        $this->blade_engine = new CompilerEngine(
+
+        $this->blade = new CompilerEngine(
             new BladeCompiler( new Filesystem, config()->path->storage_views)
         );
     }
 
-    protected function compiler()
-    {
-        return $this->blade_engine->getCompiler();
-    }
-
     public function render($path, $params = [])
     {
-        # - let's check if the blade file time is different
-        # from the compiled file
+        $path = str_replace($this->getView()->getViewsDir(), '', $path);
+        $path = str_replace('.blade.php', '', $path);
 
-        if ($this->compiler()->isExpired($path)) {
-            $this->compiler()->compile($path);
-        }
+        $view = new Factory($this->blade, $this->getView()->getViewsDir());
 
-
-        # - now buffer the compiled template to get the php variables
-        # and also declare under the buffer about the parameters.
-
-        ob_start();
-
-        if ( !empty($params) ) {
-            foreach ($params as $key => $value) {
-                ${$key} = $value;
-            }
-        }
-
-        include $this->compiler()->getCompiledPath($path);
-
-        di()->get('view')->setContent(ob_get_clean());
+        di()
+            ->get('view')
+            ->setContent(
+                $view
+                    ->make($path, $params)
+                    ->render()
+            );
     }
 }

@@ -48,6 +48,15 @@ return [
 
 
     # ----------------------------------------------------------------
+    # Default Database Adapter
+    # ----------------------------------------------------------------
+    # - Define your database adapter base it on database.php
+    # the default adapter is mysql
+
+    'db_adapter' => env('DB_ADAPTER', 'mysql'),
+
+
+    # ----------------------------------------------------------------
     # Flysystem
     # ----------------------------------------------------------------
     # - Define your default flysystem
@@ -84,7 +93,7 @@ return [
     # ----------------------------------------------------------------
 
     'auth'     => [
-        'model'          => Components\Models\User::class,
+        'model'          => Components\Model\User::class,
         'password_field' => 'password',
         'auth_redirect'  => '/newsfeed',
     ],
@@ -95,28 +104,28 @@ return [
     # ----------------------------------------------------------------
 
     'services' => [
-        Components\Providers\Slayer\URL::class,
-        Components\Providers\Slayer\Console::class,
+        Bootstrap\Providers\Console::class,
+        Components\Providers\Slayer\ACL::class,
         Components\Providers\Slayer\Aliaser::class,
-        Components\Providers\Slayer\Log::class,
+        Components\Providers\Slayer\Auth::class,
         Components\Providers\Slayer\Cache::class,
-        Components\Providers\Slayer\Lang::class,
-        Components\Providers\Slayer\Mail::class,
+        Components\Providers\Slayer\DB::class,
+        Components\Providers\Slayer\Dispatcher::class,
+        Components\Providers\Slayer\Filter::class,
         Components\Providers\Slayer\Flash::class,
         Components\Providers\Slayer\FlashBag::class,
-        Components\Providers\Slayer\Redirect::class,
-        Components\Providers\Slayer\Auth::class,
-        Components\Providers\Slayer\DB::class,
+        Components\Providers\Slayer\Lang::class,
+        Components\Providers\Slayer\Log::class,
+        Components\Providers\Slayer\Mail::class,
         Components\Providers\Slayer\MetadataAdapter::class,
-        Components\Providers\Slayer\Session::class,
-        Components\Providers\Slayer\Router::class,
-        Components\Providers\Slayer\Response::class,
-        Components\Providers\Slayer\Request::class,
-        Components\Providers\Slayer\Filter::class,
-        Components\Providers\Slayer\ACL::class,
-        Components\Providers\Slayer\View::class,
-        Components\Providers\Slayer\Dispatcher::class,
         Components\Providers\Slayer\Mongo::class,
+        Components\Providers\Slayer\Redirect::class,
+        Components\Providers\Slayer\Request::class,
+        Components\Providers\Slayer\Response::class,
+        Components\Providers\Slayer\Router::class,
+        Components\Providers\Slayer\Session::class,
+        Components\Providers\Slayer\URL::class,
+        Components\Providers\Slayer\View::class,
 
 
         # - register your classes below.
@@ -127,31 +136,31 @@ return [
 
 
     'aliases'  => [
-        'ACL'      => Bootstrap\Facades\ACL::class,
-        'Auth'     => Bootstrap\Facades\Auth::class,
-        'Config'   => Bootstrap\Facades\Config::class,
-        'DB'       => Bootstrap\Facades\DB::class,
-        'Filter'   => Bootstrap\Facades\Filter::class,
-        'Flash'    => Bootstrap\Facades\Flash::class,
-        'FlashBag' => Bootstrap\Facades\FlashBag::class,
-        'Lang'     => Bootstrap\Facades\Lang::class,
-        'Mail'     => Bootstrap\Facades\Mail::class,
-        'Redirect' => Bootstrap\Facades\Redirect::class,
-        'Response' => Bootstrap\Facades\Response::class,
-        'Request'  => Bootstrap\Facades\Request::class,
-        'Route'    => Bootstrap\Facades\Route::class,
-        'Security' => Bootstrap\Facades\Security::class,
-        'Session'  => Bootstrap\Facades\Session::class,
-        'Tag'      => Bootstrap\Facades\Tag::class,
-        'URL'      => Bootstrap\Facades\URL::class,
-        'View'     => Bootstrap\Facades\View::class,
-        'Log'      => Bootstrap\Facades\Log::class,
+        'ACL'      => Components\Facades\Slayer\ACL::class,
+        'Auth'     => Components\Facades\Slayer\Auth::class,
+        'Config'   => Components\Facades\Slayer\Config::class,
+        'DB'       => Components\Facades\Slayer\DB::class,
+        'Filter'   => Components\Facades\Slayer\Filter::class,
+        'Flash'    => Components\Facades\Slayer\Flash::class,
+        'FlashBag' => Components\Facades\Slayer\FlashBag::class,
+        'Lang'     => Components\Facades\Slayer\Lang::class,
+        'Log'      => Components\Facades\Slayer\Log::class,
+        'Mail'     => Components\Facades\Slayer\Mail::class,
+        'Redirect' => Components\Facades\Slayer\Redirect::class,
+        'Request'  => Components\Facades\Slayer\Request::class,
+        'Response' => Components\Facades\Slayer\Response::class,
+        'Route'    => Components\Facades\Slayer\Route::class,
+        'Security' => Components\Facades\Slayer\Security::class,
+        'Session'  => Components\Facades\Slayer\Session::class,
+        'Tag'      => Components\Facades\Slayer\Tag::class,
+        'URL'      => Components\Facades\Slayer\URL::class,
+        'View'     => Components\Facades\Slayer\View::class,
 
 
         # register class aliases below.
 
-        'File'      => Components\Facade\FileFacade::class,
-        'Flysystem' => Components\Facade\FlysystemFacade::class,
+        'File'      => Components\Facades\FileFacade::class,
+        'Flysystem' => Components\Facades\FlysystemFacade::class,
     ],
 
 ]; # - end of return

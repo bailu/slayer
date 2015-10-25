@@ -1,5 +1,4 @@
 <?php
-
 namespace Components\Providers\Slayer;
 
 use Exception;
@@ -8,9 +7,8 @@ use Bootstrap\Support\Mail\Mail as SupportMail;
 
 class Mail extends ServiceProvider
 {
-    protected $_alias = 'mail';
-
-    protected $_shared = false;
+    protected $alias  = 'mail';
+    protected $shared = false;
 
     public function register()
     {

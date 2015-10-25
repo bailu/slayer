@@ -1,18 +1,16 @@
 <?php
-
 namespace Components\Providers\Slayer;
 
+use Bootstrap\Laravel\Blade\BladeAdapter;
+use Phalcon\Events\Manager as EventsManager;
 use Bootstrap\Services\Service\ServiceProvider;
 use Bootstrap\Support\Phalcon\Mvc\View as PhalconView;
-use Bootstrap\Laravel\Blade\BladeAdapter;
 use Phalcon\Mvc\View\Engine\Volt as PhalconVoltEngine;
-use Phalcon\Events\Manager as EventsManager;
 
 class View extends ServiceProvider
 {
-    protected $_alias = 'view';
-
-    protected $_shared = true;
+    protected $alias  = 'view';
+    protected $shared = true;
 
     public function register()
     {

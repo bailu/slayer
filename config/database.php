@@ -3,14 +3,6 @@
 return [
 
     # ----------------------------------------------------------------
-    # Default Database Adapter
-    # ----------------------------------------------------------------
-    # - Configure your default database adapter, by default (mysql)
-
-    'adapter' => env('DB_ADAPTER', 'mysql'),
-
-
-    # ----------------------------------------------------------------
     # Database Adapter Settings
     # ----------------------------------------------------------------
     # -
@@ -26,8 +18,8 @@ return [
             'driver'   => 'mysql',
             'host'     => env('DB_HOST'    , 'localhost'),
             'port'     => env('DB_PORT'    , 3306),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', 'password'),
+            'username' => env('DB_USERNAME'),
+            'password' => env('DB_PASSWORD'),
             'dbname'   => env('DB_DATABASE', 'slayer'),
             'charset'  => env('DB_CHARSET' , 'utf8'),
         ],
@@ -35,16 +27,16 @@ return [
         'pgsql' => [
             'driver'   => 'pgsql',
             'host'     => env('DB_HOST'    , 'localhost'),
-            'username' => env('DB_USERNAME', 'pgsql'),
-            'password' => env('DB_PASSWORD', 'pgsql'),
+            'username' => env('DB_USERNAME'),
+            'password' => env('DB_PASSWORD'),
             'dbname'   => env('DB_DATABASE', 'slayer'),
             'charset'  => env('DB_CHARSET' , 'utf8'),
         ],
 
         'oracle' => [
             'driver'   => 'oracle',
-            'username' => env('DB_USERNAME', 'oracle'),
-            'password' => env('DB_PASSWORD', 'oracle'),
+            'username' => env('DB_USERNAME'),
+            'password' => env('DB_PASSWORD'),
             'dbname'   => env('DB_DATABASE', '//localhost/slayer'),
             'charset'  => env('DB_CHARSET' , 'utf8'),
         ],
@@ -54,7 +46,7 @@ return [
     # ----------------------------------------------------------------
     # MongoDB
     # ----------------------------------------------------------------
-    # - Enable your mongo database
+    # - Enable your nosql as your database
 
     'mongo' => [
         'enabled'  => false,

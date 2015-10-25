@@ -1,16 +1,14 @@
 <?php
-
 namespace Components\Providers\Slayer;
 
-use Bootstrap\Services\Service\ServiceProvider;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
+use Bootstrap\Services\Service\ServiceProvider;
 
 class Log extends ServiceProvider
 {
-    protected $_alias = 'log';
-
-    protected $_shared = false;
+    protected $alias  = 'log';
+    protected $shared = false;
 
     public function register()
     {

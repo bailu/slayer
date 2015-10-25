@@ -1,5 +1,4 @@
 <?php
-
 namespace Components\Providers\Slayer;
 
 use Bootstrap\Services\Service\ServiceProvider;
@@ -7,9 +6,8 @@ use Bootstrap\Support\Phalcon\Mvc\URL as UrlResolver;
 
 class URL extends ServiceProvider
 {
-    protected $_alias = 'url';
-
-    protected $_shared = false;
+    protected $alias  = 'url';
+    protected $shared = false;
 
     public function register()
     {

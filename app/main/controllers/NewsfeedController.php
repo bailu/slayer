@@ -1,16 +1,14 @@
 <?php
-
 namespace App\Main\Controllers;
 
-# using alias
-use Request; # use Bootstrap\Facades\Request;
-use View;    # use Bootstrap\Facades\View;
+use View;
+use Request;
 
 class NewsfeedController extends Controller
 {
     public function initialize()
     {
-        $this->acl('auth');
+        $this->middleware('auth');
     }
 
     public function indexAction()

@@ -1,18 +1,16 @@
 <?php
-
 namespace Components\Providers\Slayer;
 
-use Bootstrap\Exceptions\ControllerNotFoundException;
-use Bootstrap\Services\Service\ServiceProvider;
-use Phalcon\Mvc\Dispatcher as MvcDispatcher;
 use Phalcon\Events\Manager as EventsManager;
+use Phalcon\Mvc\Dispatcher as MvcDispatcher;
+use Bootstrap\Services\Service\ServiceProvider;
+use Bootstrap\Exceptions\ControllerNotFoundException;
 use Phalcon\Mvc\Dispatcher\Exception as DispatchException;
 
 class Dispatcher extends ServiceProvider
 {
-    protected $_alias = 'dispatcher';
-
-    protected $_shared = true;
+    protected $alias  = 'dispatcher';
+    protected $shared = true;
 
     public function register()
     {

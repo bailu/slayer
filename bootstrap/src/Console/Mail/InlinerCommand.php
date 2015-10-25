@@ -1,11 +1,10 @@
 <?php
-
 namespace Bootstrap\Console\Mail;
 
+use Components\Facades\Slayer\View;
 use Bootstrap\Console\SlayerCommand;
-use Bootstrap\Facades\View;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
 use TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
 
 class InlinerCommand extends SlayerCommand

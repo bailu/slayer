@@ -1,16 +1,14 @@
 <?php
-
 namespace Components\Providers\Slayer;
 
-use Bootstrap\Services\Service\ServiceProvider;
 use Phalcon\Cache\Backend\File as BackFile;
 use Phalcon\Cache\Frontend\Data as FrontData;
+use Bootstrap\Services\Service\ServiceProvider;
 
 class Cache extends ServiceProvider
 {
-    public $_alias = 'cache';
-
-    public $_shared = false;
+    protected $alias  = 'cache';
+    protected $shared = false;
 
     public function register()
     {

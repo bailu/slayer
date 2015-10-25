@@ -1,16 +1,15 @@
 <?php
-
 namespace Components\Providers;
 
 use Aws\Sdk;
-use Bootstrap\Services\Service\ServiceProvider;
-use League\Flysystem\MountManager;
 use League\Flysystem\Filesystem;
+use League\Flysystem\MountManager;
+use Bootstrap\Services\Service\ServiceProvider;
 
 class FlysystemServiceProvider extends ServiceProvider
 {
-    protected $_alias = 'flysystem';
-    protected $_shared = true;
+    protected $alias  = 'flysystem';
+    protected $shared = true;
 
     public function register()
     {

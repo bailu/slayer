@@ -13,7 +13,9 @@ Phalcon is not only about performance, our goal is to make it robust, rich in fe
 
 ## Contributing
 
-You can pull the most updated branch ``dev``, create a pull request of your forked updates, issues should be reported using GitHub's Issues and all security concerns should be emailed to ``daison12006013@gmail.com`` promptly.
+Please read the [CONTRIBUTING.md](https://github.com/phalconslayer/slayer/blob/dev/CONTRIBUTING.md)
+
+You can pull the most updated branch ``dev``, create a pull request of your forked branch updates, issues should be reported using GitHub's Issues and all security concerns should be emailed to ``daison12006013@gmail.com`` promptly.
 
 Thanks to all [contributors](https://github.com/phalconslayer/slayer/graphs/contributors).
 

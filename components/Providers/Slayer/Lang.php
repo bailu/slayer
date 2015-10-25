@@ -1,5 +1,4 @@
 <?php
-
 namespace Components\Providers\Slayer;
 
 use Bootstrap\Services\Service\ServiceProvider;
@@ -7,9 +6,8 @@ use Bootstrap\Support\Lang\Lang as SupportLang;
 
 class Lang extends ServiceProvider
 {
-    protected $_alias = 'lang';
-
-    protected $_shared = false;
+    protected $alias  = 'lang';
+    protected $shared = false;
 
     public function register()
     {
